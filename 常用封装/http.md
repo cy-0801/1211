@@ -7,7 +7,8 @@ import loading from 'loading/index.js'
 const http = axios.create({
 	//baseURL:'',
 	timeout:5000,
-	withCredentials:true
+	withCredentials:true,
+    //headers:
 })
 
 http.interceptors.request.use((config)=>{
@@ -33,5 +34,27 @@ http.interceptors.response.use(res=>{
 })
 
 export default http
+```
+
+```js
+http({
+    url:'',//必须
+    method:'get',// 不写默认get
+    params: {
+    	ID: 12345
+  	},
+})
+```
+
+```js
+//响应体包含的信息
+{
+    status:200,//code
+    statusText:'ok',
+    headers:{},//响应头
+    config:{},
+    request:{},
+    data:{}
+}
 ```
 
